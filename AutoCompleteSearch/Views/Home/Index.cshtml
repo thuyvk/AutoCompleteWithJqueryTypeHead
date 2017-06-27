@@ -19,6 +19,9 @@
             </div>
         </div>
 
+        @*hidden value for search*@
+        <input type="hidden" id="TypeSearch" />
+        <input type="hidden" id="Keyword" />
     </div>
     <div class="col-md-4">
         @*Submit button*@
@@ -31,6 +34,14 @@
         $.typeahead({
             input: ".js-typeahead",
             order: "asc",
+            hint: true,
+            group: {
+                template: "{{group}}"
+            },
+            maxItemPerGroup: 5,
+            template: function (query, item) {
+                return "<div class='suggest-item'>{{Name}} - <small>{{Description}}</small></div>";
+            },
             source: {
                 "Phones": {
                     ajax: {
@@ -49,6 +60,8 @@
             },
             callback: {
                 onClickAfter: function (node, a, item, event) {
+                    $('#TypeSearch').val(item.group);
+                    $('#Keyword').val(item.Name);
                 }
             }
         });
