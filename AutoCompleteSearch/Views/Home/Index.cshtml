@@ -1,33 +1,41 @@
-﻿@{
+﻿@model AutoCompleteSearch.Models.IndexView
+
+@{
     ViewBag.Title = "Home Page";
 }
 
 <h2>Auto complete search with jquery-typehead</h2>
-<div class="row">
-    <div class="col-md-3">
-        @*Input auto complete*@
-        <div class="typeahead__container">
-            <div class="typeahead__field">
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-md-3">
+            @*Input auto complete*@
+            <div class="typeahead__container">
+                <div class="typeahead__field">
 
-                <span class="typeahead__query">
-                    <input class="js-typeahead"
-                           name="q"
-                           type="search"
-                           placeholder="Enter product name or brand"
-                           autocomplete="off">
-                </span>
+                    <span class="typeahead__query">
+                        <input class="js-typeahead"
+                               name="q"
+                               type="search"
+                               placeholder="Enter product name or brand"
+                               autocomplete="off">
+                    </span>
+                </div>
             </div>
-        </div>
 
-        @*hidden value for search*@
-        <input type="hidden" id="TypeSearch" />
-        <input type="hidden" id="Keyword" />
+            @*hidden value for search*@
+            @Html.HiddenFor(x=>x.Keyword, new { @id= "Keyword" })
+            @Html.HiddenFor(x => x.Type, new { @id = "TypeSearch" })
+        </div>
+        <div class="col-md-4">
+            @*Submit button*@
+            <input type="submit" name="submit" value="Search" class="btn btn-primary" />
+        </div>
     </div>
-    <div class="col-md-4">
-        @*Submit button*@
-        <input type="submit" name="submit" value="Search" class="btn btn-primary" />
-    </div>
-</div>
+}
+
 
 @section scripts{
     <script>

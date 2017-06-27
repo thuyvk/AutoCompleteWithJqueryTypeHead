@@ -174,7 +174,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AutoComplateView.cs" />
+    <Compile Include="Models\AutoCompleteView.cs" />
+    <Compile Include="Models\IndexView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

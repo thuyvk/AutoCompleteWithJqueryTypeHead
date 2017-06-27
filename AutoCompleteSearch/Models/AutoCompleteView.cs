@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
+﻿using System.Collections.Generic;
 namespace AutoCompleteSearch.Models
 {
-    public class AutoComplateView
+    public class AutoCompleteView
     {
         public List<ItemView> Phones { set; get; }//iphone 4, iphone 5, samsung galaxy s8...
         public List<ItemView> Brands { set; get; }//apple, samsung, xixaomin

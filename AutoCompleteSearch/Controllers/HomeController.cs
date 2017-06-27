@@ -16,11 +16,22 @@ namespace AutoCompleteSearch.Controllers
             return View();
         }
 
+        [HttpPost, ValidateAntiForgeryToken]
+        public ActionResult Index(IndexView obj)
+        {
+            return View();
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public ActionResult Search(string keyword, string type)
+        {
+            return View();
+        }
 
         //init data for autocomplete filter
         public JsonResult GetValueAutoComplate()
         {
-            AutoComplateView returnObj = new AutoComplateView();
+            AutoCompleteView returnObj = new AutoCompleteView();
             using (var db = new AutoComplateDatabaseEntities())
             {
                 returnObj.Phones = new List<ItemView>();
