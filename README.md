@@ -6,5 +6,6 @@ link download: [http://www.runningcoder.org/jquerytypeahead/]
 - Add jquery.typeahead.min.css to folder Content 
 - Add jquery.typeahead.min.js to folder Scripts
 
-## 2. Run SQLScript ~/ScriptDatabase/ScriptDatabase.sql to create Database
+## 2. Create demo database
+- Run sql script at folder ~/ScriptDatabase/ScriptDatabase.sql to create demo database
 
