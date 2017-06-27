@@ -39,7 +39,10 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    
+    @*js for autocomplete*@
     <script src="~/Scripts/jquery.typeahead.min.js"></script>
+
+    @RenderSection("scripts", required: false)
 </body>
 </html>
