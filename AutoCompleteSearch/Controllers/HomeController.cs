@@ -19,11 +19,25 @@ namespace AutoCompleteSearch.Controllers
         [HttpPost, ValidateAntiForgeryToken]
         public ActionResult Index(IndexView obj)
         {
+            if (obj.Type == "Phones")
+                return RedirectToAction("SearchPhone", "Home", new { keyword = obj.Keyword });
+            else if (obj.Type == "Brands")
+                return RedirectToAction("SearchBrand", "Home", new { keyword = obj.Keyword });
+            else
+                return RedirectToAction("SearchAll", "Home", new { keyword = obj.Keyword });
+        }
+
+        public ActionResult SearchAll(string keyword)
+        {
             return View();
         }
 
-        [HttpPost, ValidateAntiForgeryToken]
-        public ActionResult Search(string keyword, string type)
+        public ActionResult SearchPhone(string keyword)
+        {
+            return View();
+        }
+
+        public ActionResult SearchBrand(string keyword)
         {
             return View();
         }
